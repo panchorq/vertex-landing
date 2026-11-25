@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vertex Realty</title>
+<meta name="description" content="Vertex Realty — Corredora de propiedades e inversión inmobiliaria en Viña del Mar. Transformamos propiedades en inversiones inteligentes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-900:#070f1f;
+  --navy-800:#0b1830;
+  --navy-700:#13254a;
+  --ivory:#f6f3ec;
+  --paper:#fbfaf7;
+  --ink:#121826;
+  --muted:#5b6475;
+  --line:#e3ded2;
+  --gold:#b89a5e;
+  --gold-soft:#d8c49a;
+  --silver:#c9ced8;
+  --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --max:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:500;display:inline-flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:36px;height:1px;background:currentColor}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;line-height:1.08}
+h2{font-size:clamp(34px,4.4vw,54px)}
+.lead{font-size:18px;color:var(--muted);max-width:620px;font-weight:300}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 30px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;border:1px solid transparent;transition:all .25s ease;cursor:pointer;font-family:var(--sans)}
+.btn-gold{background:var(--gold);color:var(--navy-900)}
+.btn-gold:hover{background:var(--gold-soft)}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.btn-dark{background:var(--navy-800);color:#fff}
+.btn-dark:hover{background:var(--navy-700)}
+.arrow{width:18px;height:1px;background:currentColor;position:relative}
+.arrow::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+
+/* Header */
+.topbar{background:var(--navy-900);color:var(--silver);font-size:12px;letter-spacing:.06em}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:40px;gap:16px}
+.topbar a:hover{color:#fff}
+.topbar .tb-right{display:flex;gap:28px}
+header.nav{position:sticky;top:0;z-index:50;background:rgba(11,24,48,.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
+.brand{display:flex;align-items:center;gap:14px;color:#fff}
+.brand-mark{width:40px;height:40px}
+.brand-name{font-family:var(--serif);font-size:26px;letter-spacing:.32em;font-weight:500;line-height:1}
+.brand-sub{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.5em;color:var(--gold-soft);margin-top:6px}
+nav.menu{display:flex;gap:34px;align-items:center}
+nav.menu a{color:rgba(255,255,255,.78);font-size:13px;letter-spacing:.08em;transition:color .2s;white-space:nowrap}
+nav.menu a:hover{color:#fff}
+nav.menu .btn{padding:12px 22px;font-size:12px}
+.burger{display:none;background:none;border:0;color:#fff;cursor:pointer;width:44px;height:44px}
+.burger span{display:block;width:24px;height:1px;background:#fff;margin:6px auto}
+
+/* Hero */
+.hero{position:relative;color:#fff;background:var(--navy-900);overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:
+  linear-gradient(100deg,rgba(7,15,31,.96) 0%,rgba(7,15,31,.82) 45%,rgba(7,15,31,.35) 100%),
+  url("https://www.toppropiedades.cl/imagenes/c3410u12355co10c484.jpg") center/cover no-repeat}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:80px 80px;mask-image:linear-gradient(90deg,#000 0%,transparent 70%)}
+.hero .wrap{position:relative;padding-top:140px;padding-bottom:120px}
+.hero h1{font-size:clamp(46px,7vw,92px);max-width:860px;margin:28px 0 28px}
+.hero h1 em{font-style:italic;color:var(--gold-soft)}
+.hero .lead{color:rgba(255,255,255,.75);font-size:19px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:44px}
+.hero-foot{position:relative;border-top:1px solid rgba(255,255,255,.1)}
+.hero-foot .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding-top:0;padding-bottom:0}
+.hero-foot div.item{padding:28px 24px 28px 0;border-right:1px solid rgba(255,255,255,.1);margin-right:24px}
+.hero-foot div.item:last-child{border-right:0}
+.hero-foot .k{font-family:var(--serif);font-size:22px;color:#fff}
+.hero-foot .v{font-size:13px;color:rgba(255,255,255,.6);margin-top:4px}
+
+/* Sections */
+section{padding:130px 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:70px}
+.sec-head h2{margin-top:20px}
+
+/* Pillars */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.pillar{padding:44px 32px 44px 0;border-right:1px solid var(--line);margin-right:32px}
+.pillar:last-child{border-right:0;margin-right:0}
+.pillar .num{font-family:var(--serif);font-size:15px;color:var(--gold);letter-spacing:.1em}
+.pillar h3{font-size:28px;margin:22px 0 14px}
+.pillar p{color:var(--muted);font-size:15px}
+
+/* Properties */
+.props{background:var(--ivory)}
+.prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{background:#fff;border:1px solid var(--line);transition:transform .35s ease,box-shadow .35s ease;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(11,24,48,.35)}
+.card-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(135deg,var(--navy-700),var(--navy-900))}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card:hover .card-img img{transform:scale(1.05)}
+.tag{position:absolute;top:18px;left:18px;background:var(--navy-900);color:#fff;font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:8px 12px}
+.tag.gold{background:var(--gold);color:var(--navy-900);left:auto;right:18px}
+.card-body{padding:28px 28px 24px;display:flex;flex-direction:column;flex:1}
+.card-loc{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.card h3{font-size:23px;margin:10px 0 20px;line-height:1.2}
+.card-meta{display:flex;gap:22px;font-size:13px;color:var(--muted);padding:16px 0;border-top:1px solid var(--line);margin-top:auto}
+.card-meta b{color:var(--ink);font-weight:500}
+.card-price{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid var(--line)}
+.card-price .p{font-family:var(--serif);font-size:28px;color:var(--navy-800)}
+.card-price .op{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.props-foot{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:56px;flex-wrap:wrap}
+.zones{display:flex;flex-wrap:wrap;gap:10px}
+.zones a{font-size:12px;border:1px solid #d6cfbf;padding:9px 16px;color:var(--muted);transition:all .2s}
+.zones a:hover{border-color:var(--navy-800);color:var(--navy-800)}
+
+/* Method */
+.method{background:var(--navy-800);color:#fff;position:relative;overflow:hidden}
+.method::after{content:"";position:absolute;right:-180px;top:-180px;width:560px;height:560px;border:1px solid rgba(184,154,94,.18);border-radius:50%}
+.method .lead{color:rgba(255,255,255,.65)}
+.method-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:90px;align-items:start;position:relative;z-index:1}
+.method blockquote{font-family:var(--serif);font-size:clamp(28px,3vw,38px);line-height:1.25;font-style:italic;color:var(--gold-soft);margin-top:48px;padding-left:28px;border-left:1px solid var(--gold)}
+.metrics{list-style:none;border-top:1px solid rgba(255,255,255,.12)}
+.metrics li{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.metrics .n{font-family:var(--serif);color:var(--gold);font-size:18px}
+.metrics h4{font-family:var(--serif);font-weight:500;font-size:24px}
+.metrics p{font-size:14px;color:rgba(255,255,255,.6);margin-top:4px}
+
+/* Services */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--paper);padding:56px 52px;display:flex;flex-direction:column;transition:background .3s}
+.svc:hover{background:#fff}
+.svc .ico{width:48px;height:48px;color:var(--gold)}
+.svc h3{font-size:34px;margin:30px 0 8px}
+.svc .sub{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.svc p{color:var(--muted);font-size:15px;max-width:460px}
+.svc ul{list-style:none;margin:22px 0 0;display:grid;gap:10px}
+.svc li{font-size:14px;color:var(--ink);display:flex;gap:12px;align-items:baseline}
+.svc li::before{content:"";width:14px;height:1px;background:var(--gold);flex:none;transform:translateY(-4px)}
+.svc .more{margin-top:auto;padding-top:34px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;display:inline-flex;align-items:center;gap:12px;color:var(--navy-800);font-weight:500}
+
+/* CTA band */
+.band{background:linear-gradient(rgba(7,15,31,.88),rgba(7,15,31,.88)),url("https://www.toppropiedades.cl/imagenes/c3410u12355co8c3af0.jpg") center/cover;color:#fff;text-align:center;padding:120px 0}
+.band h2{max-width:820px;margin:22px auto 22px}
+.band .lead{margin:0 auto 40px;color:rgba(255,255,255,.7)}
+.band .eyebrow::after{content:"";width:36px;height:1px;background:currentColor}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:90px}
+.c-list{list-style:none;margin-top:48px;border-top:1px solid var(--line)}
+.c-list li{padding:24px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:140px 1fr;gap:16px}
+.c-list .l{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+.c-list .v{font-family:var(--serif);font-size:22px}
+.c-list a.v:hover{color:var(--gold)}
+.person{margin-top:40px;display:flex;gap:18px;align-items:center}
+.avatar{width:56px;height:56px;border-radius:50%;background:var(--navy-800);color:var(--gold-soft);display:grid;place-items:center;font-family:var(--serif);font-size:22px}
+.person b{font-family:var(--serif);font-weight:500;font-size:21px;display:block}
+.person span{font-size:13px;color:var(--muted)}
+form.cf{background:#fff;border:1px solid var(--line);padding:52px}
+form.cf h3{font-size:32px;margin-bottom:8px}
+form.cf .hint{font-size:14px;color:var(--muted);margin-bottom:32px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field{display:flex;flex-direction:column;margin-bottom:22px}
+.field label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.field input,.field select,.field textarea{font:inherit;font-size:15px;border:0;border-bottom:1px solid #cfc8b8;padding:10px 0;background:transparent;color:var(--ink);outline:none;border-radius:0;transition:border-color .2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--navy-800)}
+.field textarea{resize:vertical;min-height:90px}
+form.cf .btn{width:100%;justify-content:center;margin-top:10px}
+.legal{font-size:12px;color:var(--muted);margin-top:16px;text-align:center}
+
+/* Footer */
+footer{background:var(--navy-900);color:rgba(255,255,255,.6);padding:90px 0 36px;font-size:14px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08)}
+footer h5{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft);font-weight:500;margin-bottom:22px}
+footer ul{list-style:none;display:grid;gap:12px}
+footer a:hover{color:#fff}
+footer .tagline{font-family:var(--serif);font-size:22px;color:#fff;margin:26px 0 0;max-width:300px;line-height:1.3}
+.f-bottom{display:flex;justify-content:space-between;padding-top:30px;font-size:12px;gap:20px;flex-wrap:wrap}
+
+/* WhatsApp float */
+.wa{position:fixed;right:24px;bottom:24px;width:56px;height:56px;border-radius:50%;background:var(--navy-800);border:1px solid var(--gold);display:grid;place-items:center;z-index:60;box-shadow:0 14px 30px -10px rgba(0,0,0,.45);transition:transform .2s}
+.wa:hover{transform:scale(1.06)}
+.wa svg{width:26px;height:26px;fill:var(--gold-soft)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* Responsive */
+@media (max-width:1024px){
+  .pillars{grid-template-columns:repeat(2,1fr)}
+  .pillar:nth-child(2){border-right:0;margin-right:0}
+  .pillar:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .prop-grid{grid-template-columns:repeat(2,1fr)}
+  .method-grid,.contact-grid{grid-template-columns:1fr;gap:60px}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:980px){
+  nav.menu{display:none;position:absolute;top:84px;left:0;right:0;background:var(--navy-800);flex-direction:column;align-items:stretch;padding:12px 24px 28px;gap:0;border-top:1px solid rgba(255,255,255,.08)}
+  nav.menu.open{display:flex}
+  nav.menu a{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+  nav.menu .btn{margin-top:18px;justify-content:center;border-bottom:0}
+  .burger{display:block}
+  .sec-head{grid-template-columns:1fr;gap:24px}
+  .hero-foot .wrap{grid-template-columns:1fr 1fr}
+  .hero-foot div.item:nth-child(2){border-right:0}
+  .svc-grid{grid-template-columns:1fr}
+  .topbar .tb-left{display:none}
+  .topbar .wrap{justify-content:center}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  section{padding:88px 0}
+  .hero .wrap{padding-top:90px;padding-bottom:80px}
+  .hero-actions .btn{width:100%;justify-content:center;padding:16px 18px;letter-spacing:.1em}
+  .hero-foot .wrap{grid-template-columns:1fr}
+  .hero-foot div.item{border-right:0;border-bottom:1px solid rgba(255,255,255,.1);margin-right:0;padding:20px 0}
+  .hero-foot div.item:last-child{border-bottom:0}
+  .pillars,.prop-grid{grid-template-columns:1fr}
+  .pillar{border-right:0;margin-right:0;border-bottom:1px solid var(--line);padding:36px 0}
+  .svc{padding:40px 24px}
+  form.cf{padding:32px 20px}
+  .row{grid-template-columns:1fr;gap:0}
+  .c-list li{grid-template-columns:1fr;gap:6px}
+  .f-grid{grid-template-columns:1fr}
+  .brand-name{font-size:21px;letter-spacing:.26em}
+  .topbar .tb-right{gap:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="tb-left">Corretaje e inversión inmobiliaria · Viña del Mar, Región de Valparaíso</span>
+    <div class="tb-right">
+      <a href="tel:+56938625499">+56 9 3862 5499</a>
+      <a href="mailto:contacto.vertexrealty@gmail.com">contacto.vertexrealty@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#inicio" class="brand" aria-label="Vertex Realty, inicio">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M4 6 L20 36 L36 6" stroke="#c9ced8" stroke-width="1.4"/>
+        <path d="M11 6 L20 24 L29 6" stroke="#b89a5e" stroke-width="1.4"/>
+        <path d="M18 6 L20 11 L22 6" stroke="#d8c49a" stroke-width="1.4"/>
+      </svg>
+      <span><span class="brand-name">VERTEX</span><span class="brand-sub">REALTY</span></span>
+    </a>
+    <button class="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="menu" aria-label="Principal">
+      <a href="#propiedades">Propiedades</a>
+      <a href="#enfoque">Enfoque</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#vender">Vende tu propiedad</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#contacto" class="btn btn-gold">Agendar reunión</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio" style="padding:0">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <span class="eyebrow">Corretaje e inversión inmobiliaria</span>
+    <h1>Transformamos propiedades en <em>inversiones inteligentes.</em></h1>
+    <p class="lead">Asesoría inmobiliaria con visión financiera. Analizamos cada propiedad como una oportunidad de inversión y acompañamos cada operación de principio a fin.</p>
+    <div class="hero-actions">
+      <a href="#propiedades" class="btn btn-gold">Ver propiedades <span class="arrow"></span></a>
+      <a href="#vender" class="btn btn-ghost">Vender o arrendar mi propiedad</a>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <div class="wrap">
+      <div class="item"><div class="k">Estrategia</div><div class="v">Cada propiedad, una inversión</div></div>
+      <div class="item"><div class="k">Gestión completa</div><div class="v">De la captación al cierre</div></div>
+      <div class="item"><div class="k">Alto estándar</div><div class="v">Marketing y negociación premium</div></div>
+      <div class="item"><div class="k">Resultados reales</div><div class="v">Patrimonio y rentabilidad</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section id="nosotros">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Quiénes somos</span>
+        <h2>Más allá del corretaje tradicional.</h2>
+      </div>
+      <p class="lead">Vertex Realty trabaja con un modelo basado en datos, análisis y visión de negocio. Identificamos, evaluamos y estructuramos oportunidades inmobiliarias con criterio financiero, para que cada decisión construya patrimonio.</p>
+    </div>
+    <div class="pillars reveal">
+      <div class="pillar"><span class="num">01</span><h3>Estrategia</h3><p>Analizamos cada propiedad como una oportunidad de inversión, no como un simple aviso.</p></div>
+      <div class="pillar"><span class="num">02</span><h3>Gestión completa</h3><p>Acompañamos todo el proceso: valorización, comercialización, negociación y cierre.</p></div>
+      <div class="pillar"><span class="num">03</span><h3>Alto estándar</h3><p>Marketing premium, negociación profesional y un cierre ejecutado con excelencia.</p></div>
+      <div class="pillar"><span class="num">04</span><h3>Resultados reales</h3><p>Nuestro foco está en generar patrimonio y rentabilidad para cada cliente.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section class="props" id="propiedades">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Oportunidades destacadas</span>
+        <h2>Propiedades seleccionadas para vivir o invertir.</h2>
+      </div>
+      <p class="lead">Una cartera curada en la Región de Valparaíso, la zona central y el sur de Chile. Cada propiedad pasa por nuestro análisis antes de publicarse.</p>
+    </div>
+
+    <div class="prop-grid">
+      <a class="card reveal" href="https://www.vertexrealty.cl/propiedad/204698-casa-en-venta-con-piscina-y-quincho-en-la-esperanza-peumo" target="_blank" rel="noopener">
+        <div class="card-img"><img loading="lazy" src="https://www.toppropiedades.cl/imagenes/c3410u12355co8ffcaa.jpg" alt="Casa con piscina y quincho en La Esperanza, Peumo" onerror="this.remove()"><span class="tag">Casa</span><span class="tag gold">Destacada</span></div>
+        <div class="card-body">
+          <span class="card-loc">Peumo · O'Higgins</span>
+          <h3>Casa con piscina y quincho en La Esperanza</h3>
+          <div class="card-meta"><span><b>4</b> dorm.</span><span><b>2</b> baños</span><span><b>10</b> estac.</span></div>
+          <div class="card-price"><span class="p">$235.000.000</span><span class="op">Venta</span></div>
+        </div>
+      </a>
+      <a class="card reveal" href="https://www.vertexrealty.cl/propiedad/200904-hermosa-casa-en-condominio-san-jose-de-machali" target="_blank" rel="noopener">
+        <div class="card-img"><img loading="lazy" src="https://www.toppropiedades.cl/imagenes/c3410u12355co8c3af0.jpg" alt="Casa en condominio San José de Machalí" onerror="this.remove()"><span class="tag">Casa</span><span class="tag gold">Destacada</span></div>
+        <div class="card-body">
+          <span class="card-loc">Machalí · O'Higgins</span>
+          <h3>Casa en condominio San José de Machalí</h3>
+          <div class="card-meta"><span><b>3</b> dorm.</span><span><b>3</b> baños</span><span><b>4</b> estac.</span></div>
+          <div class="card-price"><span class="p">UF 7.600</span><span class="op">Venta</span></div>
+        </div>
+      </a>
+      <a class="card reveal" href="https://www.vertexrealty.cl/propiedad/194116-se-vende-espectacular-parcela-con-casa-en-linares" target="_blank" rel="noopener">
+        <div class="card-img"><img loading="lazy" src="https://www.toppropiedades.cl/imagenes/c3410u12355co9f7691.jpg" alt="Parcela con casa en Linares" onerror="this.remove()"><span class="tag">Parcela</span><span class="tag gold">Destacada</span></div>
+        <div class="card-body">
+          <span class="card-loc">Linares · Maule</span>
+          <h3>Parcela con casa en Linares</h3>
+          <div class="card-meta"><span><b>3</b> dorm.</span><span><b>3</b> baños</span></div>
+          <div class="card-price"><span class="p">UF 19.600</span><span class="op">Venta</span></div>
+        </div>
+      </a>
+      <a class="card reveal" href="https://www.vertexrealty.cl/propiedad/205905-departamento-amoblado-con-vista-al-mar-en-papudo" target="_blank" rel="noopener">
+        <div class="card-img"><img loading="lazy" src="https://www.toppropiedades.cl/imagenes/c3410u12355co10c484.jpg" alt="Departamento amoblado con vista al mar en Papudo" onerror="this.remove()"><span class="tag">Departamento</span></div>
+        <div class="card-body">
+          <span class="card-loc">Papudo · Valparaíso</span>
+          <h3>Departamento amoblado con vista al mar</h3>
+          <div class="card-meta"><span><b>2</b> dorm.</span><span><b>2</b> baños</span><span><b>1</b> estac.</span></div>
+          <div class="card-price"><span class="p">UF 4.650</span><span class="op">Venta</span></div>
+        </div>
+      </a>
+      <a class="card reveal" href="https://www.vertexrealty.cl/propiedad/205816-casa-con-piscina-en-avenida-espana-curico-4d-y-3b" target="_blank" rel="noopener">
+        <div class="card-img"><img loading="lazy" src="https://www.toppropiedades.cl/imagenes/c3410u12355cob4c229.jpg" alt="Casa con piscina en Avenida España, Curicó" onerror="this.remove()"><span class="tag">Casa</span></div>
+        <div class="card-body">
+          <span class="card-loc">Curicó · Maule</span>
+          <h3>Casa con piscina en Avenida España</h3>
+          <div class="card-meta"><span><b>4</b> dorm.</span><span><b>3</b> baños</span><span><b>1</b> estac.</span></div>
+          <div class="card-price"><span class="p">$260.000.000</span><span class="op">Venta</span></div>
+        </div>
+      </a>
+      <a class="card reveal" href="https://www.vertexrealty.cl/propiedad/205814-casa-esquina-frente-a-plaza-4d-y-3b-en-san-felipe" target="_blank" rel="noopener">
+        <div class="card-img"><img loading="lazy" src="https://www.toppropiedades.cl/imagenes/c3410u12355coddee9c.png" alt="Casa esquina frente a plaza en San Felipe" onerror="this.remove()"><span class="tag">Casa</span></div>
+        <div class="card-body">
+          <span class="card-loc">San Felipe · Valparaíso</span>
+          <h3>Casa esquina frente a plaza</h3>
+          <div class="card-meta"><span><b>4</b> dorm.</span><span><b>3</b> baños</span><span><b>2</b> estac.</span></div>
+          <div class="card-price"><span class="p">$155.000.000</span><span class="op">Venta</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="props-foot reveal">
+      <div class="zones" aria-label="Búsquedas frecuentes">
+        <a href="https://www.vertexrealty.cl/zona/venta/departamento/valparaiso" target="_blank" rel="noopener">Departamentos · Valparaíso</a>
+        <a href="https://www.vertexrealty.cl/zona/venta/departamento/concon" target="_blank" rel="noopener">Departamentos · Concón</a>
+        <a href="https://www.vertexrealty.cl/zona/venta/departamento/las-condes" target="_blank" rel="noopener">Departamentos · Las Condes</a>
+        <a href="https://www.vertexrealty.cl/zona/venta/departamento/la-serena" target="_blank" rel="noopener">Departamentos · La Serena</a>
+        <a href="https://www.vertexrealty.cl/zona/venta/casa/curico" target="_blank" rel="noopener">Casas · Curicó</a>
+      </div>
+      <a href="https://www.vertexrealty.cl/1" target="_blank" rel="noopener" class="btn btn-dark">Ver toda la cartera <span class="arrow"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="method" id="enfoque">
+  <div class="wrap method-grid">
+    <div class="reveal">
+      <span class="eyebrow">Nuestro enfoque</span>
+      <h2 style="margin-top:20px">Cada decisión respaldada por análisis.</h2>
+      <p class="lead" style="margin-top:26px">Evaluamos las propiedades con los mismos criterios que usa un inversionista institucional. Así nuestros clientes compran, venden e invierten con información, no con intuición.</p>
+      <blockquote>Invertir bien no es intuición. Es análisis, estrategia y ejecución.</blockquote>
+    </div>
+    <ul class="metrics reveal">
+      <li><span class="n">01</span><div><h4>Comportamiento de precios</h4><p>Valor de mercado real según comparables y evolución de la zona.</p></div></li>
+      <li><span class="n">02</span><div><h4>Rentabilidad proyectada</h4><p>Retorno esperado por arriendo y plusvalía en el horizonte del cliente.</p></div></li>
+      <li><span class="n">03</span><div><h4>Demanda de la zona</h4><p>Quién busca, qué busca y a qué precio en cada sector.</p></div></li>
+      <li><span class="n">04</span><div><h4>Tiempos de absorción</h4><p>Cuánto tarda el mercado en absorber una oferta comparable.</p></div></li>
+      <li><span class="n">05</span><div><h4>Tendencias de crecimiento</h4><p>Proyectos, conectividad y desarrollo urbano que mueven el valor.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Servicios</span>
+        <h2>Soluciones para propietarios, inversionistas y profesionales.</h2>
+      </div>
+      <p class="lead">Desde la venta de una vivienda hasta la estructuración de inversiones para empresas, cada servicio se apoya en el mismo método.</p>
+    </div>
+    <div class="svc-grid reveal">
+      <article class="svc" id="vender">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M6 22 24 8l18 14"/><path d="M11 19v21h26V19"/><path d="M20 40V28h8v12"/></svg>
+        <h3>Vende o arrienda tu propiedad</h3>
+        <span class="sub">Corretaje de alto estándar</span>
+        <p>Valorizamos con datos de mercado, preparamos una comercialización premium y conducimos la negociación hasta la firma.</p>
+        <ul><li>Tasación comercial fundamentada</li><li>Fotografía y marketing profesional</li><li>Filtro de interesados y negociación</li><li>Acompañamiento legal hasta el cierre</li></ul>
+        <a class="more" href="#contacto">Solicitar valorización <span class="arrow"></span></a>
+      </article>
+      <article class="svc">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M6 40h36"/><path d="M10 34V24M18 34V18M26 34V22M34 34V12"/><path d="M8 18 18 10l8 6 14-10"/></svg>
+        <h3>Inversiones</h3>
+        <span class="sub">Enfoque empresarial · B2B</span>
+        <p>Para empresas e inversionistas: identificamos, evaluamos y estructuramos oportunidades combinando análisis estratégico, ciencia de datos y visión de negocio.</p>
+        <ul><li>Búsqueda y evaluación de activos</li><li>Proyección de rentabilidad y riesgo</li><li>Estructuración de la operación</li></ul>
+        <a class="more" href="#contacto">Conversar con un asesor <span class="arrow"></span></a>
+      </article>
+      <article class="svc">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M4 18 24 9l20 9-20 9z"/><path d="M12 22v10c0 3 5.5 6 12 6s12-3 12-6V22"/><path d="M44 18v12"/></svg>
+        <h3>Vertex Academy Pro</h3>
+        <span class="sub">Formación profesional</span>
+        <p>Programa para profesionales inmobiliarios sobre corretaje, tasaciones, estudio de títulos, estructuración de negocios y relaciones B2B, construido sobre análisis, estrategia y ejecución.</p>
+        <a class="more" href="#contacto">Conocer el programa <span class="arrow"></span></a>
+      </article>
+      <article class="svc">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="18" cy="16" r="6"/><path d="M6 38c0-7 5.4-12 12-12s12 5 12 12"/><path d="M34 14v12M28 20h12"/></svg>
+        <h3>Únete a Vertex</h3>
+        <span class="sub">Carrera profesional</span>
+        <p>Para corredores que quieren evolucionar. No se trata solo de vender propiedades.</p>
+        <ul><li>Criterio comercial y estratégico</li><li>Capacidad de negociación real</li><li>Visión de inversión</li><li>Red de contactos de alto valor</li><li>Marca personal respaldada por una estructura sólida</li></ul>
+        <a class="more" href="#contacto">Postular <span class="arrow"></span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="band">
+  <div class="wrap reveal">
+    <span class="eyebrow">Hablemos</span>
+    <h2>¿Listo para transformar tu propiedad en una inversión inteligente?</h2>
+    <p class="lead">Agenda una reunión sin costo. Revisamos tu propiedad o tu objetivo de inversión y te proponemos una estrategia concreta.</p>
+    <a class="btn btn-gold" href="https://api.whatsapp.com/send?phone=56938625499&text=Hola%20Vertex%20Realty%2C%20quisiera%20agendar%20una%20reuni%C3%B3n." target="_blank" rel="noopener">Hablar por WhatsApp <span class="arrow"></span></a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contacto">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="eyebrow">Contacto</span>
+      <h2 style="margin-top:20px">Conversemos sobre tu próxima decisión inmobiliaria.</h2>
+      <p class="lead" style="margin-top:24px">Déjanos tus datos y un especialista se pondrá en contacto contigo.</p>
+      <ul class="c-list">
+        <li><span class="l">Teléfono</span><a class="v" href="tel:+56938625499">+56 9 3862 5499</a></li>
+        <li><span class="l">Correo</span><a class="v" href="mailto:contacto.vertexrealty@gmail.com" style="word-break:break-all">contacto.vertexrealty@gmail.com</a></li>
+        <li><span class="l">Oficina</span><span class="v">Viña del Mar, Región de Valparaíso</span></li>
+      </ul>
+      <div class="person">
+        <div class="avatar">CP</div>
+        <div><b>Carolina Pereira</b><span>Gerente Comercial</span></div>
+      </div>
+    </div>
+    <form class="cf reveal" id="cf" novalidate>
+      <h3>Solicita una asesoría</h3>
+      <p class="hint">Respondemos dentro del mismo día hábil.</p>
+      <div class="row">
+        <div class="field"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" required autocomplete="name"></div>
+        <div class="field"><label for="f-tel">Teléfono</label><input id="f-tel" name="telefono" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="field"><label for="f-mail">Correo electrónico</label><input id="f-mail" name="correo" type="email" autocomplete="email"></div>
+      <div class="field"><label for="f-int">Me interesa</label>
+        <select id="f-int" name="interes">
+          <option>Comprar una propiedad</option>
+          <option>Vender mi propiedad</option>
+          <option>Arrendar mi propiedad</option>
+          <option>Invertir (empresas e inversionistas)</option>
+          <option>Vertex Academy Pro</option>
+          <option>Unirme a Vertex</option>
+        </select>
+      </div>
+      <div class="field"><label for="f-msg">Mensaje</label><textarea id="f-msg" name="mensaje"></textarea></div>
+      <button class="btn btn-dark" type="submit">Enviar solicitud <span class="arrow"></span></button>
+      <p class="legal">Al enviar, se abrirá WhatsApp con tu solicitud lista para mandar.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a href="#inicio" class="brand">
+          <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M4 6 L20 36 L36 6" stroke="#c9ced8" stroke-width="1.4"/><path d="M11 6 L20 24 L29 6" stroke="#b89a5e" stroke-width="1.4"/><path d="M18 6 L20 11 L22 6" stroke="#d8c49a" stroke-width="1.4"/></svg>
+          <span><span class="brand-name">VERTEX</span><span class="brand-sub">REALTY</span></span>
+        </a>
+        <p class="tagline">Transformamos propiedades en inversiones inteligentes.</p>
+      </div>
+      <div><h5>Explorar</h5><ul><li><a href="#propiedades">Propiedades</a></li><li><a href="#enfoque">Nuestro enfoque</a></li><li><a href="#nosotros">Quiénes somos</a></li><li><a href="https://www.vertexrealty.cl/noticias" target="_blank" rel="noopener">Blog</a></li></ul></div>
+      <div><h5>Servicios</h5><ul><li><a href="#vender">Vende tu propiedad</a></li><li><a href="#servicios">Inversiones</a></li><li><a href="#servicios">Academy Pro</a></li><li><a href="#servicios">Únete a Vertex</a></li></ul></div>
+      <div><h5>Contacto</h5><ul><li><a href="tel:+56938625499">+56 9 3862 5499</a></li><li><a href="mailto:contacto.vertexrealty@gmail.com" style="word-break:break-all">contacto.vertexrealty@gmail.com</a></li><li>Viña del Mar, Región de Valparaíso</li></ul></div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Vertex Realty SpA. Todos los derechos reservados.</span>
+      <span>Corretaje · Inversión · Formación inmobiliaria</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://api.whatsapp.com/send?phone=56938625499&text=Hola%20Vertex%20Realty%2C%20estoy%20revisando%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<script>
+(function(){
+  var burger=document.querySelector('.burger'),menu=document.querySelector('nav.menu');
+  burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');burger.setAttribute('aria-expanded',false)})});
+
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    els.forEach(function(el){io.observe(el)});
+  } else els.forEach(function(el){el.classList.add('in')});
+
+  document.getElementById('cf').addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var f=ev.target,n=f.nombre.value.trim();
+    if(!n){f.nombre.focus();return}
+    var t='Hola Vertex Realty, soy '+n+'.\nMe interesa: '+f.interes.value+'.'+
+      (f.telefono.value?'\nTeléfono: '+f.telefono.value:'')+
+      (f.correo.value?'\nCorreo: '+f.correo.value:'')+
+      (f.mensaje.value?'\n\n'+f.mensaje.value:'');
+    window.open('https://api.whatsapp.com/send?phone=56938625499&text='+encodeURIComponent(t),'_blank','noopener');
+  });
+})();
+</script>
+</body>
+</html>
